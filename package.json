@@ -4,8 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "keywords": [],
   "author": "Daniel Radezky",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "7.6.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11"
+  }
 }
