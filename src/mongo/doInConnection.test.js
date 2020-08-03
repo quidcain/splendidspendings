@@ -9,6 +9,7 @@ test('connected to mongo', async () => {
         salaryMonth: 20,
       });
     });
+    expect(true).toBe(false);
   } catch(e) {
     expect(e.name).toEqual('MongoNetworkError');
     expect(e.message).toContain('failed to connect to server');
