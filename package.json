@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "jest"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
@@ -24,5 +25,8 @@
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "mongodb": "3.6.0"
+  },
+  "devDependencies": {
+    "jest": "26.2.2"
   }
 }

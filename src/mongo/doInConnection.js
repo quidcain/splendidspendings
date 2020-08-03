@@ -9,9 +9,7 @@ const doInConnection = async action => {
     await client.connect();
     const db = client.db(dbName);
     // await db.command({ ping: 1 });
-    await action(db);
-  } catch(e) {
-    console.dir(e);
+    return await action(db);
   } finally {
     await client.close();
   }
