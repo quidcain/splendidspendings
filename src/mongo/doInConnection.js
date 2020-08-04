@@ -8,7 +8,6 @@ const doInConnection = async action => {
   try {
     await client.connect();
     const db = client.db(dbName);
-    // await db.command({ ping: 1 });
     return await action(db);
   } finally {
     await client.close();

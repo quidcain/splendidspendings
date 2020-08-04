@@ -1,16 +1,13 @@
 const doInConnection = require('./doInConnection');
 
-test('connected to mongo', async () => {
+test('doInConnection', async () => {
   try {
     await doInConnection(async db => {
-      await db.collection('users').insertOne({
-        id: 71892087,
-        budget: 20,
-        salaryMonth: 20,
-      });
+      await db.command({ ping: 1 });
     });
     expect(true).toBe(true);
   } catch(e) {
+    console.log(e);
     expect(true).toBe(false);
   }
 });
