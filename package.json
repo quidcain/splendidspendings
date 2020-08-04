@@ -24,6 +24,7 @@
     "eslint": "7.6.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
+    "luxon": "1.24.1",
     "mongodb": "3.6.0"
   },
   "devDependencies": {
