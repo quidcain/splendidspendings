@@ -14,7 +14,29 @@ const createUser = async ({
   });
 };
 
+const addSpending = async ({
+  id,
+  day,
+  group,
+  amount,
+}) => {
+  await doInConnection(async db => {
+    const result = await db.collection('users').updateOne(
+      { _id: id },
+      {
+        $inc: {
+          [`spendings.${day}.${group}`]: amount,
+        },
+      },
+    );
+    if(!result.matchedCount) {
+      throw new Error('Please register yourself!');
+    }
+  });
+};
+
 module.exports = {
   createUser,
+  addSpending,
 };
 
