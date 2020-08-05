@@ -35,8 +35,46 @@ const addSpending = async ({
   });
 };
 
+const getBalance = async ({
+  id,
+  day,
+  group,
+}) => {
+  return await doInConnection(async db => {
+    const cursor = db.collection('users').aggregate([
+      /* {
+        $match: {
+          _id: id,
+          date: {
+            $and: [
+              { $gt: forUser.salaryMonthStartDate },
+              { $lte: forDate },
+            ],
+          },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          spent: { $sum: '$groups.daily' },
+          days: { $sum: 1 },
+        },
+      }, */
+      {
+        $group: {
+          _id: '$_id',
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    const array = await cursor.toArray();
+    return array;
+  });
+};
+
 module.exports = {
   createUser,
   addSpending,
+  getBalance,
 };
 

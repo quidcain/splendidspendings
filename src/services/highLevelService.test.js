@@ -41,4 +41,17 @@ describe('highLevelService', () => {
       console.log(e);
     }
   });
+
+  test('getBalance', async () => {
+    try {
+      const result = await highLevelService.getBalance({
+        id,
+        day: '2020-08-20',
+        group: 'daily',
+      });
+      console.log(result);
+    } catch(e) {
+      console.log(e);
+    }
+  });
 });
