@@ -10,3 +10,4 @@ RUN npm i
 FROM base AS test
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
+CMD ["bash"]
