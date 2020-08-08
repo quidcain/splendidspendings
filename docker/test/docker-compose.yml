@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: ./docker/test/Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      MONGO_HOSTNAME: mongo
+      MONGO_PORT: 27017
+  mongo:
+    image: mongo
+    ports:
+      - '28028:27017'
