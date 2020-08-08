@@ -1,6 +1,10 @@
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb://127.0.0.1:27017';
+const {
+  MONGO_HOSTNAME = '127.0.0.1',
+  MONGO_PORT = 27017,
+} = process.env;
+const uri = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}`;
 const dbName = 'ss';
 
 const doInConnection = async action => {
