@@ -12,5 +12,3 @@ services:
       MONGO_PORT: 27017
   mongo:
     image: mongo
-    ports:
-      - '28028:27017'
